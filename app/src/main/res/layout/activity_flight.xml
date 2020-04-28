@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1A84A8"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,10 +14,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="156dp"
-        android:layout_marginLeft="156dp"
-        android:layout_marginTop="336dp"
-        android:text="Flight Activity" />
+        android:layout_marginStart="82dp"
+        android:layout_marginLeft="82dp"
+        android:layout_marginTop="40dp"
+        android:text="Flight Tracking"
+        android:textSize="30sp" />
 
 
 </RelativeLayout>
