@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A84A8"
+    android:background="#49585D"
     tools:context=".MainActivity">
 
     <TextView
@@ -23,19 +23,6 @@
         android:textSize="36sp" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="187dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="145dp"
-        android:layout_marginRight="145dp"
-        android:layout_marginBottom="104dp"
-        android:text="Flight Activity" />
-
-    <Button
         android:id="@+id/button1"
         android:layout_width="187dp"
         android:layout_height="wrap_content"
@@ -43,10 +30,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="127dp"
-        android:layout_marginLeft="127dp"
-        android:layout_marginBottom="168dp"
-        android:text="Virus Activity" />
+        android:layout_marginStart="119dp"
+        android:layout_marginLeft="119dp"
+        android:layout_marginBottom="150dp"
+        android:text="Track Live" />
 
     <TextView
         android:id="@+id/textView"

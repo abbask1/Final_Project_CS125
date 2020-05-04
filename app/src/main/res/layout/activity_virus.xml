@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A84A8"
+    android:background="#FF49585D"
     tools:context=".MainActivity">
 
     <TextView
@@ -45,6 +45,7 @@
         android:layout_marginTop="27dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
+        android:background="#FF49585D"
         android:scrollbars="vertical"
         android:textSize="20sp" />
 
