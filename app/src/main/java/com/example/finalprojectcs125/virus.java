@@ -52,7 +52,7 @@ public class virus extends AppCompatActivity {
         // Next, we create a new JsonArrayRequest. This will use Volley to make a HTTP request
         // that expects a JSON Array Response.
         // To fully understand this, I'd recommend readng the office docs: https://developer.android.com/training/volley/index.html
-        JsonArrayRequest arrReq = new JsonArrayRequest(Request.Method.GET, url,
+        JsonArrayRequest arrReq = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -72,17 +72,20 @@ public class virus extends AppCompatActivity {
                                     Log.e("Volley", "Invalid JSON Object.");
                                 }
 
+
                             }
+
                         }
 
                     }
-                },
 
+                },
                 new Response.ErrorListener() {
+
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // If there a HTTP error then add a note to our repo list.
-                        setText("Error while calling REST API");
+                        setText("none", 0,0,0);
                         Log.e("Volley", error.toString());
                     }
                 }
@@ -92,8 +95,4 @@ public class virus extends AppCompatActivity {
         requestQueue.add(arrReq);
 
     }
-
-
-
-
 }
