@@ -47,28 +47,23 @@ public class virus extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
 
-
-
-        // Next, we create a new JsonArrayRequest. This will use Volley to make a HTTP request
-        // that expects a JSON Array Response.
-        // To fully understand this, I'd recommend readng the office docs: https://developer.android.com/training/volley/index.html
         JsonArrayRequest arrReq = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        // Check the length of our response (to see if the user has any repos)
                         if (response.length() > 0) {
-                            // The user does have repos, so let's loop through them all.
+                            //looping through the data
                             for (int i = 0; i < response.length(); i++) {
                                 try {
-                                    // For each repo, add a new line to our repo list.
+                                    // Getting the data
                                     JSONObject jsonObj = response.getJSONObject(i);
                                     String state = jsonObj.get("Province").toString();
                                     int confirmed = jsonObj.getInt("Confirmed");
                                     int deaths = jsonObj.getInt("Deaths");
                                     int active = jsonObj.getInt("Active");
+                                    virus_data.append(state  + " " + "\n" + "Confirmed Cases: " + String.valueOf(confirmed) + "\n" + "Deaths: " + String.valueOf(deaths) + "\n" + "Active Cases: " + String.valueOf(active) + "\n\n");
                                 } catch (JSONException e) {
-                                    // If there is an error then output this to the logs.
+                                    // What to do if you get an Error in Json Object
                                     Log.e("Volley", "Invalid JSON Object.");
                                 }
 
@@ -90,8 +85,9 @@ public class virus extends AppCompatActivity {
                     }
                 }
         );
-        // Add the request we just defined to our request queue.
-        // The request queue will automatically handle the request as soon as it can.
+
+
+        //Handling the request
         requestQueue.add(arrReq);
 
     }
