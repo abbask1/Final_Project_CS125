@@ -7,8 +7,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Filterable;
+//import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +16,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
+//import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -26,23 +25,24 @@ import org.json.JSONObject;
 
 public class virus extends AppCompatActivity {
 
-    Button button2;
+    Button button;
     TextView virus_data;
     RequestQueue requestQueue;
     String url = "https://api.covid19api.com/live/country/united-states";
 
-    private void setText(String province, int conf, int deaths, int active) {
-        this.virus_data.setText(province);
+    private void setText(String state, int conf, int deaths, int active, String date) {
+        this.virus_data.setText(state);
         this.virus_data.setText(conf);
         this.virus_data.setText(deaths);
         this.virus_data.setText(active);
+        this.virus_data.setText(date);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_virus);
-        this.button2 = (Button) findViewById(R.id.button2);  // Link to button.
+        this.button = (Button) findViewById(R.id.button1);  // Link to button.
         this.virus_data = (TextView) findViewById(R.id.virus_data);  // Link to text output box.
         this.virus_data.setMovementMethod(new ScrollingMovementMethod());
 
@@ -62,7 +62,8 @@ public class virus extends AppCompatActivity {
                                     int confirmed = jsonObj.getInt("Confirmed");
                                     int deaths = jsonObj.getInt("Deaths");
                                     int active = jsonObj.getInt("Active");
-                                    virus_data.append(state  + " " + "\n" + "Confirmed Cases: " + String.valueOf(confirmed) + "\n" + "Deaths: " + String.valueOf(deaths) + "\n" + "Active Cases: " + String.valueOf(active) + "\n\n");
+                                    String date = jsonObj.get("Date").toString().substring(0,10);
+                                    virus_data.append(state  + " " + "\n" + "Confirmed Cases: " + String.valueOf(confirmed) + "\n" + "Deaths: " + String.valueOf(deaths) + "\n" + "Active Cases: " + String.valueOf(active) + "\n" + date + "\n\n");
                                 } catch (JSONException e) {
                                     // What to do if you get an Error in Json Object
                                     Log.e("Volley", "Invalid JSON Object.");
@@ -81,7 +82,7 @@ public class virus extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // If there a HTTP error then add a note to our repo list.
-                        setText("none", 0,0,0);
+                        setText("none", 0,0,0, "none");
                         Log.e("Volley", error.toString());
                     }
                 }

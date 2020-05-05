@@ -33,7 +33,7 @@
         android:layout_marginStart="119dp"
         android:layout_marginLeft="119dp"
         android:layout_marginBottom="150dp"
-        android:text="Track Live" />
+        android:text="Track U.S.A" />
 
     <TextView
         android:id="@+id/textView"
@@ -48,6 +48,5 @@
         android:layout_marginTop="191dp"
         android:text="Case Tracker"
         android:textSize="36sp" />
-
 
 </RelativeLayout>

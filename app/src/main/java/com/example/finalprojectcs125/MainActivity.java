@@ -10,22 +10,13 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button button;
     private Button button1;
+    private Button button;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        button = (Button)findViewById(R.id.button1);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openFlightActivity();
-            }
-        });
 
         button1 = (Button)findViewById(R.id.button1);
 
@@ -34,20 +25,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 openVirusActivity();     }
         });
+
+
     }
 
 
-
-    public void openFlightActivity() {
-        Intent intent = new Intent(this, flight.class);
-        startActivity(intent);
-    }
 
     public void openVirusActivity() {
         Intent intent = new Intent(this, virus.class);
         startActivity(intent);
     }
-
-
-
 }
